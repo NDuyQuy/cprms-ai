@@ -1,0 +1,9 @@
+# "fastapi[standard]"
+sentence-transformers
+# pydantic
+# uvicorn
+pymysql
+sqlmodel
+# python-dotenv
+pydantic-settings
+mysqlclient
