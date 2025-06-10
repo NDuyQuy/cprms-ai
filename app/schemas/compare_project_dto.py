@@ -6,7 +6,7 @@ class CompareRequest(BaseModel):
     semesters: List[str] # Danh sách kỳ cần so sánh (Ví dụ: ["SU25", "SP25"])
 
 class CompareResult(BaseModel):
-    ProjectId: int
+    ProjectId: str
     Score: float
 
 class CompareResponse(BaseModel):
