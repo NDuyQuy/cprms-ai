@@ -62,7 +62,7 @@ Vào xem Swagger: http://127.0.0.1:8000/docs
 Khi bạn hoàn thành, bạn có thể **dừng môi trường ảo** bằng cách gõ lệnh:
 
 ```bash
-deactivate hoặc nhận CTRL C
+deactivate hoặc nhấn CTRL C
 ```
 
 Điều này sẽ trả bạn lại về môi trường hệ thống mặc định của bạn.
