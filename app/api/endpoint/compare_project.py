@@ -40,6 +40,8 @@ def compare_project(request: CompareRequest, session: Session = Depends(get_sess
             emb = json.loads(item.EmbeddingJson)
             projects_dict[item.ProjectId][item.FieldName] = emb
         except Exception as e:
+            print("Error in: ", item.FieldName)
+            print("Eror: ", e)
             continue
         
     # 5. Tính điểm từng Project
@@ -51,12 +53,12 @@ def compare_project(request: CompareRequest, session: Session = Depends(get_sess
         for field, input_vec in input_embeddings.items():
             if field in fields:
                 sim = compute_cosine_score(input_vec, fields[field])
-                weight = weights.get(field, 1.0)
+                weight = weights.get(field)
                 total_score += sim*weight
                 total_weight +=weight
                 
         if total_weight >0:
-                results.append(CompareResult(ProjectId= project_id, Score=(total_score/ total_weight)))
+                results.append(CompareResult(ProjectId= project_id, Score=round((total_score/ total_weight),4)))
                 
     # 6. Sắp xếp kết quả
     sorted_results = sorted(results, key=lambda x: x.Score, reverse=True)
