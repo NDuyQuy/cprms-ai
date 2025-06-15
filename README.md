@@ -39,7 +39,6 @@ Trong dự án của bạn, các phụ thuộc sẽ được liệt kê trong fi
 
 ```bash
 tạo file .venv và lấy dữ liệu từ trên file Call API
-pip install "fastapi[standard]"
 pip install -r requirements.txt
 ```
 
