@@ -38,7 +38,7 @@ Khi môi trường ảo được kích hoạt thành công, bạn sẽ thấy t�
 Trong dự án của bạn, các phụ thuộc sẽ được liệt kê trong file `requirements.txt`. Sau khi kích hoạt môi trường ảo, bạn có thể cài đặt các phụ thuộc bằng lệnh sau:
 
 ```bash
-tạo file .venv và lấy dữ liệu từ trên file Call API
+tạo file .env, ngang cấp thư mục với requirement, readme, app và lấy dữ liệu từ trên file Call API
 pip install -r requirements.txt
 ```
 
