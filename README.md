@@ -50,7 +50,8 @@ pip install -r requirements.txt
 Sau khi cài đặt các phụ thuộc, bạn có thể **chạy dự án FastAPI** với lệnh sau:
 
 ```bash
-fastapi dev app/main.py   
+Local: fastapi dev app/main.py
+Deploy Production: uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
 
