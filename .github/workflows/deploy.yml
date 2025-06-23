@@ -71,3 +71,4 @@ jobs:
               --resource-group ${{ env.RG }} \
               --image ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
               --set-env-vars ${{ env.CONTAINER_ENV_VARS }}
+          fi
