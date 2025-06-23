@@ -56,7 +56,6 @@ jobs:
             az containerapp create \
               --name ${{ env.APP_NAME }} \
               --resource-group ${{ env.RG }} \
-              --location ${{ env.LOCATION }} \
               --image ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
               --environment cprms-env \
               --ingress external \
