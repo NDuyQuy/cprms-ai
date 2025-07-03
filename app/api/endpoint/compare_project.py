@@ -19,10 +19,11 @@ def compare_project(request: CompareRequest, session: Session = Depends(get_sess
     #1. Encode input fields
     input_embeddings = encode_fields(request.fields)
     
-    # 2. Load all existing project embeddings that match the semester
+    # 2. Load all existing project embeddings that match the semester and campusId
     statementQuery = select(ProjectEmbedding).where(
         ProjectEmbedding.IsDeleted == False,
-        ProjectEmbedding.SemesterName.in_(request.semesters)
+        ProjectEmbedding.SemesterName.in_(request.semesters),
+        ProjectEmbedding.CampusId == request.campusId
     )
     
     all_embeddings = session.exec(statementQuery).all()
@@ -60,8 +61,10 @@ def compare_project(request: CompareRequest, session: Session = Depends(get_sess
         if total_weight >0:
                 results.append(CompareResult(ProjectId= project_id, Score=round((total_score/ total_weight),4)))
                 
-    # 6. Sắp xếp kết quả
-    sorted_results = sorted(results, key=lambda x: x.Score, reverse=True)
+    # 6. Lấy các Score >=0.6 và Sắp xếp kết quả
+    filtered_results = [res for res in results if res.Score >= 0.6]
+    
+    sorted_results = sorted(filtered_results, key=lambda x: x.Score, reverse=True)
 
     # Lấy top 5 kết quả với điểm cao nhất
     top_5_results = sorted_results[:5]

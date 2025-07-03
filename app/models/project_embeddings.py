@@ -10,7 +10,7 @@ class ProjectEmbedding(SQLModel, table=True):
     FieldName: str
     EmbeddingJson: str
     ModelVersion: Optional[str]
-
+    CampusId: str
     CreatedAt: Optional[datetime]
     CreatedBy: Optional[str]
     LastModified: Optional[datetime]
