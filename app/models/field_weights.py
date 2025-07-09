@@ -8,7 +8,7 @@ class FieldWeights(SQLModel, table=True):
     Id: str = Field(primary_key=True)
     FieldName: str
     WeightValue: int
-    SpecialtyId: int
+    SpecialityId: str
     CreatedAt: Optional[datetime]
     CreatedBy: Optional[str]
     LastModified: Optional[datetime]
