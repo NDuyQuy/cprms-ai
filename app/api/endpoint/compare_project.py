@@ -61,8 +61,8 @@ def compare_project(request: CompareRequest, session: Session = Depends(get_sess
         if total_weight >0:
                 results.append(CompareResult(ProjectId= project_id, Score=round((total_score/ total_weight),4)))
                 
-    # 6. Lấy các Score >=0.6 và Sắp xếp kết quả
-    filtered_results = [res for res in results if res.Score >= 0.6]
+    # 6. Lấy các Score >=0.7 và Sắp xếp kết quả
+    filtered_results = [res for res in results if res.Score >= 0.7]
     
     sorted_results = sorted(filtered_results, key=lambda x: x.Score, reverse=True)
 
